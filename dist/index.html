@@ -4,21 +4,40 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/5ff8b95ac6a521de35f3d5d3a89af6ed.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.7d369b0f.png">
   
-  <link rel="stylesheet" href="/725bb5d8498ab7e1202a4cad07544d9b.css">
+  <link rel="stylesheet" href="/main.07544d9b.css">
 
   <title>Frontend Mentor | Todo app</title>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>.attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }</style>
-</head>
+<script src="/main.07544d9b.js"></script></head>
 <body>
 
+  <main class="todo" aria-label="main" id="todo-bg">
+
+      <header class="todo__header">
+        <div class="todo__header-wrapper"></div>
+
+          <div class="todo__itmes-wrapper">
+            <h1 class="todo__logo">TODO</h1>
+            <button class="todo__theme-switch" type="button" aria-label="theme control" aria-controls="todo-bg">
+            </button>
+          </div>
+
+          <form action="post" class="form todo__form">
+            <input type="text" placeholder="Create a new todo">
+          </form>
+
+          
+        
+      </header>
+  
+
+  </main>
+  <!-- 
   Todo
 
-  <!-- Add dynamic number --> items left
+ Add dynamic number items left
 
   All
   Active 
@@ -32,5 +51,6 @@
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">Your Name Here</a>.
   </div>
+  -->
 </body>
 </html>
