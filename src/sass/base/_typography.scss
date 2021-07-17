@@ -1,0 +1,13 @@
+@use "../abstracts" as variables;
+
+/*------------------------------*\
+    #typography
+\*------------------------------*/
+
+html {
+  font-size: 100%;
+}
+
+body {
+  font-size: variables.$font-primary;
+}

@@ -1,0 +1,15 @@
+/**
+*   Abstracts...............Globaly used varialbes and mixins.
+*
+*   Base..................Css defualt resets and global typography rules.
+*
+*   components............Discrete components that can be reused.
+*
+*   layout.................Layout files such as header,main and footer.
+*
+*   themes..............contains variables for different themes.
+*
+*   vendors.............Thirs party plugins used in the project.
+*
+
+*/

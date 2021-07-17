@@ -1,0 +1,13 @@
+@use "variables";
+
+@mixin respond-to($breakpoint) {
+  @media screen and (max-width: map.get($key:$breakpoint , $map:variables.$breakpoint)) {
+  }
+}
+
+@mixin flex-container($al-con: "center", $js-con: "center", $flex-d: "row") {
+  display: flex;
+  align-items: $al-con;
+  justify-content: $js-con;
+  flex-direction: $flex-d;
+}

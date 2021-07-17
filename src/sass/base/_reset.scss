@@ -1,0 +1,78 @@
+@use "../abstracts" as variables;
+
+/*------------------------------*\
+    #resets
+\*------------------------------*/
+
+/*|| global rests */
+
+html {
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: initial;
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: none;
+}
+
+/*|| making them fit inside the container */
+
+picture,
+image {
+  max-width: 100%;
+}
+
+/*|| removing the default list style */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+}
+
+button {
+  border: none;
+}
+
+/*||remove the default styles for a and buttons on focus state but reset them when element is tabed.*/
+button,
+a {
+  cursor: pointer;
+
+  &:focus {
+    outline: max(1, 0.1em) solid #000;
+    outline-offset: -0.25em;
+  }
+
+  &:not(:focus-visible) {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: max(1, 0.1em) solid #000;
+    outline-offset: -0.25em;
+  }
+}
+
+/*|| Remove all animations and transitions
+for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

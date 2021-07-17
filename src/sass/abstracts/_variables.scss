@@ -1,0 +1,23 @@
+/*------------------------------*\
+    #variables
+\*------------------------------*/
+
+// color variables
+
+:root {
+  --Bright-Blue: hsl(220, 98%, 61%);
+  --Check-Background-From: hsl(192, 100%, 67%);
+  --Check-Background-To: hsl(280, 87%, 65%);
+}
+
+// font variables
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap");
+$font-primary: "Rubik", sans-serif;
+$fontsize-textinput: 18px;
+
+// breakpoint used in media queries
+$breakpoints: (
+  "table": 43em,
+  "laptop": 62em,
+  "desktop": 82em,
+);
