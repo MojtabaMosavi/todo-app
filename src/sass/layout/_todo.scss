@@ -1,0 +1,80 @@
+@use "../abstracts" as v;
+
+/*------------------------------*\
+    #todo
+\*------------------------------*/
+
+.todo {
+  &__header {
+    width: 100%;
+    background: var(--header-bg-image) top center / cover no-repeat;
+    object-fit: cover;
+  }
+
+  &__header-wrapper {
+    padding-top: 2.6rem;
+  }
+
+  &__items-wrapper {
+    @include v.flex-container();
+    margin-bottom: 2rem;
+  }
+
+  &__logo {
+    font-size: 1.6rem;
+    letter-spacing: 0.75rem;
+    font-weight: 500;
+    color: var(--text-color);
+  }
+
+  &__theme-switch {
+    width: 1.4rem;
+    height: 2rem;
+    background: url("../assets/images/icon-sun.svg") center / contain no-repeat;
+  }
+
+  &__form {
+    display: inline-block;
+    margin-bottom: 2.45rem;
+    border-radius: 1rem;
+    border: none;
+    width: 100%;
+    border-radius: 0.5rem;
+    overflow: hidden;
+  }
+
+  &__input-wrapper {
+    display: flex;
+  }
+
+  &__circle {
+    width: 4rem;
+    background-color: var(--list-bg);
+    position: relative;
+
+    &-fill {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 1.2rem;
+      height: 1.2rem;
+      border-radius: 1rem;
+      border: 1px solid var(--text-gray);
+    }
+  }
+
+  &__input {
+    width: 100%;
+    padding: 1.2rem 0;
+    outline: none;
+    border: none;
+    background-color: var(--list-bg);
+    font-size: 0.7rem;
+    color: var(--text-color);
+  }
+}
+
+/*------------------------------*\
+    #todo__header 
+\*------------------------------*/

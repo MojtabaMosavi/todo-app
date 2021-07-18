@@ -184,7 +184,12 @@ function reloadCSS() {
 }
 
 module.exports = reloadCSS;
-},{"./bundle-url":"../node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./bundle-url":"../node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"sass/main.scss":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"./../assets/images/icon-sun.svg":[["icon-sun.57f9ab7b.svg","assets/images/icon-sun.svg"],"assets/images/icon-sun.svg"],"./../assets/images/bg-mobile-dark.jpg":[["bg-mobile-dark.d6b15da4.jpg","assets/images/bg-mobile-dark.jpg"],"assets/images/bg-mobile-dark.jpg"],"./../assets/images/bg-mobile-light.jpg":[["bg-mobile-light.91debd6d.jpg","assets/images/bg-mobile-light.jpg"],"assets/images/bg-mobile-light.jpg"],"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -212,7 +217,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53270" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59745" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

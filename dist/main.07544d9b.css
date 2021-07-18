@@ -1,2 +1,203 @@
+/*------------------------------*\
+    #variables
+\*------------------------------*/
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap");
+:root {
+  --Bright-Blue: hsl(220, 98%, 61%);
+  --Check-Background-From: hsl(192, 100%, 67%);
+  --Check-Background-To: hsl(280, 87%, 65%);
+}
+
+/*------------------------------*\
+    #mixins 
+\*------------------------------*/
+/*------------------------------*\
+    #resets
+\*------------------------------*/
+/*|| global rests */
+html {
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: initial;
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: none;
+}
+
+/*|| making them fit inside the container */
+picture,
+image {
+  max-width: 100%;
+}
+
+/*|| removing the default list style */
+ul[role=list],
+ol[role=list] {
+  list-style: none;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+}
+
+button {
+  border: none;
+}
+
+/*||remove the default styles for a and buttons on focus state but reset them when element is tabed.*/
+button,
+a {
+  cursor: pointer;
+}
+button:focus,
+a:focus {
+  outline: max(1, 0.1em) solid #000;
+  outline-offset: -0.25em;
+}
+button:not(:focus-visible),
+a:not(:focus-visible) {
+  outline: none;
+}
+button:focus-visible,
+a:focus-visible {
+  outline: max(1, 0.1em) solid #000;
+  outline-offset: -0.25em;
+}
+
+/*|| Remove all animations and transitions
+for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  *,
+*::before,
+*::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+/*------------------------------*\
+    #typography
+\*------------------------------*/
+html {
+  font-size: 100%;
+}
+
+body {
+  font-size: "Rubik", sans-serif;
+  font-family: "Rubik", sans-serif;
+}
+
+/*------------------------------*\
+    #helpers
+\*------------------------------*/
+.container {
+  padding: 0 1.25rem 0 1.5rem;
+}
+
+/*------------------------------*\
+    #todo
+\*------------------------------*/
+.todo__header {
+  width: 100%;
+  background: var(--header-bg-image) top center/cover no-repeat;
+  object-fit: cover;
+}
+.todo__header-wrapper {
+  padding-top: 2.6rem;
+}
+.todo__items-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  margin-bottom: 2rem;
+}
+.todo__logo {
+  font-size: 1.6rem;
+  letter-spacing: 0.75rem;
+  font-weight: 500;
+  color: var(--text-color);
+}
+.todo__theme-switch {
+  width: 1.4rem;
+  height: 2rem;
+  background: url("/icon-sun.57f9ab7b.svg") center/contain no-repeat;
+}
+.todo__form {
+  display: inline-block;
+  margin-bottom: 2.45rem;
+  border-radius: 1rem;
+  border: none;
+  width: 100%;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+.todo__input-wrapper {
+  display: flex;
+}
+.todo__circle {
+  width: 4rem;
+  background-color: var(--list-bg);
+  position: relative;
+}
+.todo__circle-fill {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 1rem;
+  border: 1px solid var(--text-gray);
+}
+.todo__input {
+  width: 100%;
+  padding: 1.2rem 0;
+  outline: none;
+  border: none;
+  background-color: var(--list-bg);
+  font-size: 0.7rem;
+  color: var(--text-color);
+}
+
+/*------------------------------*\
+    #todo__header 
+\*------------------------------*/
+/*------------------------------*\
+    #dark-theme
+\*------------------------------*/
+.dark-theme {
+  --main-bg: hsl(235, 21%, 11%);
+  --list-bg: hsl(235, 24%, 19%);
+  --text-color: hsl(234, 39%, 85%);
+  --text-hover: hsl(236, 33%, 92%);
+  --text-gray: hsl(234, 11%, 52%);
+  --text-completed-primary: hsl(233, 14%, 35%);
+  --text-completed-seconday: hsl(237, 14%, 26%);
+  --header-bg-image: url("/bg-mobile-dark.d6b15da4.jpg");
+}
+
+/*------------------------------*\
+    #light-theme
+\*------------------------------*/
+.light-theme {
+  --list-bg: hsl(0, 0%, 98%);
+  --main-bg: hsl(236, 33%, 92%);
+  --text-gray: hsl(233, 11%, 84%);
+  --text-hover: hsl(236, 33%, 92%);
+  --text-completed-primary: hsl(236, 9%, 61%);
+  --text-completed-seconday: hsl(237, 14%, 26%);
+  --color-text: hsl(235, 19%, 35%);
+  --header-bg-image: url("/bg-mobile-light.91debd6d.jpg");
+}
 
 /*# sourceMappingURL=/main.07544d9b.css.map */

@@ -13,22 +13,27 @@
 <script src="/main.07544d9b.js"></script></head>
 <body>
 
-  <main class="todo" aria-label="main" id="todo-bg">
-
+  <main class="todo dark-theme" aria-label="main" id="todo-bg">
       <header class="todo__header">
-        <div class="todo__header-wrapper"></div>
+        <div class="todo__header-wrapper container">
 
-          <div class="todo__itmes-wrapper">
-            <h1 class="todo__logo">TODO</h1>
-            <button class="todo__theme-switch" type="button" aria-label="theme control" aria-controls="todo-bg">
-            </button>
-          </div>
+            <div class="todo__items-wrapper">
+              <h1 class="todo__logo">TODO</h1>
+              <button class="todo__theme-switch" type="button" aria-label="theme control" aria-controls="todo-bg">
+              </button>
+            </div>
 
-          <form action="post" class="form todo__form">
-            <input type="text" placeholder="Create a new todo">
-          </form>
+            <form action="post" class="form todo__form">
+              <div class="todo__input-wrapper">
+                <span class="todo__circle">
+                  <span class="todo__circle-fill"></span>
+                </span>
+                <input class="todo__input" type="text" name="todo-data" placeholder="Create a new todo">
+              </div>
+            </form>
 
           
+          </div>
         
       </header>
   
