@@ -101,14 +101,52 @@ body {
 \*------------------------------*/
 .container {
   padding: 0 1.25rem 0 1.5rem;
+  max-width: 33.625rem;
+  margin: 0 auto;
+}
+@media screen and (min-width: 43em) {
+  .container {
+    padding: 0;
+  }
 }
 
 /*------------------------------*\
+    #modal
+\*------------------------------*/
+.modal {
+  max-width: 34rem;
+  min-height: 20rem;
+  width: 100%;
+  height: 100%;
+  background-color: red;
+  border-radius: 2rem;
+}
+/*------------------------------*\
     #todo
 \*------------------------------*/
+@keyframes rotation {
+  to {
+    transform: rotate(360deg) scale(1.1);
+  }
+}
+.todo {
+  position: relative;
+  /*------------------------------*\
+    #todo__nav
+  \*------------------------------*/
+  /*------------------------------*\
+    #modal styles
+  \*------------------------------*/
+  /*------------------------------*\
+    #laptop styles
+  \*------------------------------*/
+  /*------------------------------*\
+    #laptop styles
+  \*------------------------------*/
+}
 .todo__header {
   width: 100%;
-  background: var(--header-bg-image) top center/cover no-repeat;
+  background: var(--header-bg-image-mobile) top center/cover no-repeat;
   object-fit: cover;
 }
 .todo__header-wrapper {
@@ -120,17 +158,22 @@ body {
   justify-content: space-between;
   flex-direction: row;
   margin-bottom: 2rem;
+  position: relative;
 }
 .todo__logo {
-  font-size: 1.6rem;
+  font-size: 1.7rem;
   letter-spacing: 0.75rem;
   font-weight: 500;
-  color: var(--text-color);
+  color: var(--text-hover);
 }
 .todo__theme-switch {
-  width: 1.4rem;
+  width: 2rem;
   height: 2rem;
-  background: url("/icon-sun.57f9ab7b.svg") center/contain no-repeat;
+  background: url("/icons8-settings.a3fa8f92.svg") center/contain no-repeat;
+  z-index: 10;
+}
+.todo__theme-switch:hover {
+  animation: rotation 2s ease-in-out infinite;
 }
 .todo__form {
   display: inline-block;
@@ -165,13 +208,57 @@ body {
   outline: none;
   border: none;
   background-color: var(--list-bg);
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   color: var(--text-color);
+  /* making the styles for autofill consistant with the design*/
+}
+.todo__input:-webkit-autofill,
+.todo__input -webkit-autofill:focus,
+.todo__input -webkit-autofill:hover {
+  -webkit-text-fill-color: var(--text-color);
+  -webkit-box-shadow: 0 0 0px 1000px var(--list-bg) inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+.todo__nav {
+  position: absolute;
+  width: 10rem;
+  height: 2rem;
+  top: 0;
+  right: 0;
+  background: red;
+}
+.todo__modal {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 25%);
+}
+@media screen and (min-width: 43em) {
+  .todo__header {
+    background: var(--header-bg-image-desktop) top center/cover no-repeat;
+  }
+}
+@media screen and (min-width: 62em) {
+  .todo__header-wrapper {
+    padding-top: 4.3rem;
+  }
+  .todo__items-wrapper {
+    margin-bottom: 2.5rem;
+  }
+  .todo__logo {
+    font-size: 2.5rem;
+    letter-spacing: 1.1rem;
+  }
+  .todo__form {
+    margin-bottom: 5.5rem;
+  }
+  .todo__input {
+    padding: 1.6rem 0;
+    font-size: 1.125rem;
+  }
 }
 
-/*------------------------------*\
-    #todo__header 
-\*------------------------------*/
 /*------------------------------*\
     #dark-theme
 \*------------------------------*/
@@ -183,7 +270,10 @@ body {
   --text-gray: hsl(234, 11%, 52%);
   --text-completed-primary: hsl(233, 14%, 35%);
   --text-completed-seconday: hsl(237, 14%, 26%);
-  --header-bg-image: url("/bg-mobile-dark.d6b15da4.jpg");
+  --header-bg-image-mobile: url("/bg-mobile-dark.d6b15da4.jpg");
+  --header-bg-image-desktop: url("/bg-desktop-dark.8fdea223.jpg");
+  --theme-icon: url("/icon-sun.57f9ab7b.svg");
+  --white: hsl(0, 0, 100%);
 }
 
 /*------------------------------*\
@@ -198,6 +288,7 @@ body {
   --text-completed-seconday: hsl(237, 14%, 26%);
   --color-text: hsl(235, 19%, 35%);
   --header-bg-image: url("/bg-mobile-light.91debd6d.jpg");
+  --theme-icon: url("/icon-moon.40322708.svg");
 }
 
 /*# sourceMappingURL=/main.07544d9b.css.map */

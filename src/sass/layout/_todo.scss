@@ -3,11 +3,17 @@
 /*------------------------------*\
     #todo
 \*------------------------------*/
+@keyframes rotation {
+  to {
+    transform: rotate(360deg) scale(1.1);
+  }
+}
 
 .todo {
+  position: relative;
   &__header {
     width: 100%;
-    background: var(--header-bg-image) top center / cover no-repeat;
+    background: var(--header-bg-image-mobile) top center / cover no-repeat;
     object-fit: cover;
   }
 
@@ -15,22 +21,29 @@
     padding-top: 2.6rem;
   }
 
+  // positioned relative because contain todo__nav
   &__items-wrapper {
     @include v.flex-container();
     margin-bottom: 2rem;
+    position: relative;
   }
 
   &__logo {
-    font-size: 1.6rem;
+    font-size: 1.7rem;
     letter-spacing: 0.75rem;
     font-weight: 500;
-    color: var(--text-color);
+    color: var(--text-hover);
   }
 
   &__theme-switch {
-    width: 1.4rem;
+    width: 2rem;
     height: 2rem;
-    background: url("../assets/images/icon-sun.svg") center / contain no-repeat;
+    background: url("../assets/images/icons8-settings.svg") center / contain
+      no-repeat;
+    z-index: 10;
+    &:hover {
+      animation: rotation 2s ease-in-out infinite;
+    }
   }
 
   &__form {
@@ -70,11 +83,75 @@
     outline: none;
     border: none;
     background-color: var(--list-bg);
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     color: var(--text-color);
+
+    /* making the styles for autofill consistant with the design*/
+    &:-webkit-autofill,
+    -webkit-autofill:focus,
+    -webkit-autofill:hover {
+      -webkit-text-fill-color: var(--text-color);
+      -webkit-box-shadow: 0 0 0px 1000px var(--list-bg) inset;
+      transition: background-color 5000s ease-in-out 0s;
+    }
+  }
+
+  /*------------------------------*\
+    #todo__nav
+  \*------------------------------*/
+  &__nav {
+    position: absolute;
+    width: 10rem;
+    height: 2rem;
+    top: 0;
+    right: 0;
+    background: red;
+  }
+
+  /*------------------------------*\
+    #modal styles
+  \*------------------------------*/
+  &__modal {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 25%);
+  }
+
+  /*------------------------------*\
+    #laptop styles
+  \*------------------------------*/
+  @include v.respond-to("tablet") {
+    &__header {
+      background: var(--header-bg-image-desktop) top center / cover no-repeat;
+    }
+  }
+
+  /*------------------------------*\
+    #laptop styles
+  \*------------------------------*/
+  @include v.respond-to("laptop") {
+    &__header-wrapper {
+      padding-top: 4.3rem;
+    }
+
+    &__items-wrapper {
+      margin-bottom: 2.5rem;
+    }
+
+    &__logo {
+      font-size: 2.5rem;
+      letter-spacing: 1.1rem;
+    }
+
+    &__form {
+      margin-bottom: 5.5rem;
+    }
+
+    &__input {
+      padding: 1.6rem 0;
+      font-size: 1.125rem;
+    }
   }
 }
-
-/*------------------------------*\
-    #todo__header 
-\*------------------------------*/

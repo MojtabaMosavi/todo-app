@@ -1,7 +1,15 @@
+@use "../abstracts" as v;
+
 /*------------------------------*\
     #helpers
 \*------------------------------*/
 
 .container {
   padding: 0 1.25rem 0 1.5rem;
+  max-width: 33.625rem;
+  margin: 0 auto;
+
+  @include v.respond-to("tablet") {
+    padding: 0;
+  }
 }

@@ -19,24 +19,43 @@
 
             <div class="todo__items-wrapper">
               <h1 class="todo__logo">TODO</h1>
-              <button class="todo__theme-switch" type="button" aria-label="theme control" aria-controls="todo-bg">
+              <button class="todo__theme-switch" type="button" aria-label="theme control" aria-controls="todo-bg" title="switch theme">
               </button>
+
+              <ul class="todo__nav">
+                <li class="todo__nav-item">
+                  <a href="#" class="todo__icon todo__icon--sun"></a>
+                </li>
+                <li class="todo__nav-item"><a href="#"></a></li>
+                <li class="todo__nav-item"><a href="#"></a></li>
+              </ul>
             </div>
 
-            <form action="post" class="form todo__form">
+            <form action="post" class="form todo__form" autocomplete="on">
               <div class="todo__input-wrapper">
-                <span class="todo__circle">
-                  <span class="todo__circle-fill"></span>
-                </span>
-                <input class="todo__input" type="text" name="todo-data" placeholder="Create a new todo">
+                <div class="todo__circle">
+                  <i class="todo__circle-fill"></i>
+                </div>
+                <input class="todo__input" type="text" name="todo-data" placeholder="Create a new todo..." autocomplete="on">
               </div>
             </form>
-
           
           </div>
         
-      </header>
-  
+      </header><!-- End of todo__header-->
+
+
+
+
+      <div class="modal todo__modal" role="dialog" tabindex="0">
+        <div class="modal__dialog">
+          <div class="modal-wrapper">
+            <div class="modal__header"></div>
+            <div class="modal__body"></div>
+            <div class="model__footer"></div>
+          </div>
+        </div>
+      </div>
 
   </main>
   <!-- 

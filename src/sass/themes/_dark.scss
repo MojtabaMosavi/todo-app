@@ -10,5 +10,8 @@
   --text-gray: hsl(234, 11%, 52%);
   --text-completed-primary: hsl(233, 14%, 35%);
   --text-completed-seconday: hsl(237, 14%, 26%);
-  --header-bg-image: url("../assets/images/bg-mobile-dark.jpg");
+  --header-bg-image-mobile: url("../assets/images/bg-mobile-dark.jpg");
+  --header-bg-image-desktop: url("../assets/images/bg-desktop-dark.jpg");
+  --theme-icon: url("../assets/images/icon-sun.svg");
+  --white: hsl(0, 0, 100%);
 }
