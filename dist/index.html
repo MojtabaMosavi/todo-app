@@ -19,17 +19,24 @@
 
             <div class="todo__items-wrapper">
               <h1 class="todo__logo">TODO</h1>
-              <button class="todo__theme-switch" type="button" aria-label="theme control" aria-controls="todo-bg" title="switch theme">
+              <button class="todo__theme-switch" type="button" aria-label="theme control" aria-controls="todo-bg" title="switch theme" aria-expanded="false">
               </button>
 
-              <ul class="todo__nav">
+              <ul class="todo__nav" role="list" aria-label="theme menu" id="theme-menu">
                 <li class="todo__nav-item">
-                  <a href="#" class="todo__icon todo__icon--sun"></a>
+                  <a href="#" class="todo__nav-icon todo__nav-icon--sun icon" aria-label="sun theme" title="sun theme"></a>
                 </li>
-                <li class="todo__nav-item"><a href="#"></a></li>
-                <li class="todo__nav-item"><a href="#"></a></li>
+
+                <li class="todo__nav-item">
+                  <a href="#" class="todo__nav-icon todo__nav-icon--moon" aria-label="moon theme" title="moon theme"></a>
+                </li>
+
+                <li class="todo__nav-item">
+                  <a href="#" class="todo__nav-icon todo__nav-icon--custom" aria-label="creat custom theme" title="custom theme"></a>
+                </li>
+                <li class="todo__nav-item"></li>
               </ul>
-            </div>
+            </div><!-- End of todo__items-wrapper -->
 
             <form action="post" class="form todo__form" autocomplete="on">
               <div class="todo__input-wrapper">
@@ -58,6 +65,24 @@
       </div>
 
   </main>
+
+  <script>var nav = document.querySelector(".todo__theme-switch");
+var list = document.querySelector(".todo__nav");
+var app = document.querySelector(".todo");
+var moon = document.querySelector(".todo__nav-icon--moon");
+var sun = document.querySelector(".todo__nav-icon--sun");
+nav.addEventListener("click", function () {
+  nav.classList.toggle("todo__theme-switch--active");
+  list.classList.toggle("todo__nav--active");
+});
+moon.addEventListener("click", function () {
+  app.classList.add("dark-theme");
+  app.classList.remove("light-theme");
+});
+sun.addEventListener("click", function () {
+  app.classList.add("light-theme");
+  app.classList.remove("dark-theme");
+});</script>
   <!-- 
   Todo
 
