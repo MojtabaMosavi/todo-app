@@ -6,6 +6,7 @@
 
 .todo {
   position: relative;
+
   &__header {
     width: 100%;
     background: var(--header-bg-image-mobile) top center / cover no-repeat;
@@ -32,20 +33,20 @@
   }
 
   &__theme-switch {
-    width: 1.2rem;
-    height: 1.2rem;
+    width: 1.6rem;
+    height: 1.6rem;
     background: url("../assets/images/icons8-settings.svg") center / contain
       no-repeat;
     z-index: 10;
 
-    &:hover {
-      animation: reverseRotation 2s ease-in-out infinite 300ms;
+    &:focus {
+      animation: reverseRotation 1s ease-in-out 1;
     }
 
     &--active {
       @extend .todo__theme-switch;
-      &:hover {
-        animation: rotation 2s ease-in-out infinite 300ms;
+      &:focus {
+        animation: rotation 1s ease-in-out 1;
       }
     }
   }
@@ -120,7 +121,7 @@
     &--active {
       @extend .todo__nav;
       visibility: visible;
-      width: 32%;
+      width: 38%;
       height: 100%;
       transform: translateY(-50%);
       border-radius: 0.5rem;
@@ -139,6 +140,11 @@
         $js-con: center,
         $flex-d: column
       );
+
+      &:hover {
+        transition: all 1s ease;
+        transform: scale(1.2) translateY(-20%);
+      }
 
       &--sun {
         background: url("../assets/images/icon-sun.svg") no-repeat center;
@@ -159,11 +165,21 @@
     #modal styles
   \*------------------------------*/
   &__modal {
-    display: none;
+    transition: v.$primary;
     position: absolute;
-    top: 50%;
     left: 50%;
-    transform: translate(-50%, 25%);
+    top: 150%;
+    transform: translate(-50%, -50%);
+
+    @include v.respond-to("laptop") {
+      top: 100%;
+    }
+  }
+
+  &__btn {
+    & > & {
+      margin-right: 1rem;
+    }
   }
 
   /*------------------------------*\
@@ -181,6 +197,12 @@
 
     &__circle {
       width: 5rem;
+    }
+
+    &__nav {
+      &--active {
+        width: 32%;
+      }
     }
   }
 

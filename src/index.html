@@ -5,7 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+/>
   <link rel="stylesheet" href="./sass/main.scss">
 
   <title>Frontend Mentor | Todo app</title>
@@ -13,7 +16,8 @@
 </head>
 <body>
 
-  <main class="todo dark-theme" aria-label="main" id="todo-bg">
+  <main class="todo dark-theme " aria-label="main" id="todo-bg">
+
       <header class="todo__header">
         <div class="todo__header-wrapper container">
 
@@ -38,7 +42,7 @@
 
                 <li class="todo__nav-item">
                   <a href="#" 
-                     class="todo__nav-icon todo__nav-icon--moon" 
+                     class="todo__nav-icon todo__nav-icon--moon " 
                      aria-label="moon theme"
                      title="moon theme"></a>
                 </li>
@@ -71,16 +75,70 @@
 
 
 
-
-      <div class="modal todo__modal" role="dialog" tabindex="0">
-        <div class="modal__dialog">
+      <div class="modal todo__modal container" role="dialog" tabindex="0">
+        <div class="modal__dialog ">
           <div class="modal-wrapper">
-            <div class="modal__header"></div>
-            <div class="modal__body"></div>
-            <div class="model__footer"></div>
+            <div class="modal__header">
+              <h2 class="modal__title">Custom Theme</h2>
+              <button class="btn btn-close btn--xs modal__btn" aria-label="close"></button>
+            </div>
+
+            <div class="modal__body">
+              <form action="post" class="modal__form">
+
+           
+                <div class="modal__field-wrapper">
+                  <h3 class="modal__input-heading">Background color:</h3>
+                  <div class="modal__input-wrapper">
+                    <label for="colorRange">RGB:</label>
+                    <input  class="modal__input-rgb" type="color" name="color" id="colorRange" >
+                  </div>
+
+                  <div class="modal__input-wrapper">
+                    <label for="colorRange">HSl:</label>
+                    <input class="modal__input-hsl" type="text" name="color" id="colorRange" placeholder="HSL color">
+                  </div>
+                </div>
+                
+                           
+                <div class="modal__field-wrapper">
+                  <h3 class="modal__input-heading">Text color:</h3>
+                  <div class="modal__input-wrapper">
+                    <label for="colorRange">RGB:</label>
+                    <input  class="modal__input-rgb" type="color" name="color" id="colorRange" >
+                  </div>
+
+                  <div class="modal__input-wrapper">
+                    <label for="colorRange">HSl:</label>
+                    <input class="modal__input-hsl" type="text" name="color" id="colorRange" placeholder="HSL color">
+                  </div>
+                </div>
+                
+                
+                <div class="modal__field-wrapper">
+                  <h3 class="modal__input-heading">List Background Color:</h3>
+                  <div class="modal__input-wrapper">
+                    <label for="colorRange">RGB:</label>
+                    <input  class="modal__input-rgb" type="color" name="color" id="colorRange" >
+                  </div>
+
+                  <div class="modal__input-wrapper">
+                    <label for="colorRange">HSl:</label>
+                    <input class="modal__input-hsl" type="text" name="color" id="colorRange" placeholder="HSL color">
+                  </div>
+                </div>
+
+              </form>
+            </div>
+
+            <div class="modal__footer">
+              <button class="btn btn--s modal__btn  " type="button" aria-label="Close"> Close</button>
+              <button class="btn btn--l modal__btn " type="button" aria-label="Save changes">Save Changes</button>
+            </div>
+
           </div>
         </div>
-      </div>
+      </div><!-- End of modal -->
 
   </main>
 
@@ -90,6 +148,9 @@
     const app = document.querySelector(".todo")
     const moon = document.querySelector(".todo__nav-icon--moon");
     const sun = document.querySelector(".todo__nav-icon--sun");
+    const custom = document.querySelector(".todo__nav-icon--custom");
+    const modal = document.querySelector(".modal");
+
 
     nav.addEventListener("click", () => {
       nav.classList.toggle("todo__theme-switch--active")
@@ -106,6 +167,10 @@
       app.classList.add("light-theme");
       app.classList.remove("dark-theme");
 
+    })
+
+    custom.addEventListener("click",() => {
+      modal.classList.toggle("modal--active");
     }) 
 
 

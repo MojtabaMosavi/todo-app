@@ -1,0 +1,32 @@
+@use "../abstracts" as v;
+
+/*------------------------------*\
+    #modal
+\*------------------------------*/
+
+.btn {
+  cursor: pointer;
+
+  &:hover {
+    filter: brightness(150%);
+  }
+
+  &--xs {
+    height: 2rem;
+    width: 2rem;
+    background: url("../assets/images/icon-cross.svg") no-repeat center;
+  }
+
+  &--s {
+    height: 2rem;
+    width: 3rem;
+  }
+
+  &--l {
+    height: 2rem;
+    width: 6rem;
+  }
+
+  &--close {
+  }
+}

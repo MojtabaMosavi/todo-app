@@ -33,15 +33,14 @@ html {
 }
 
 * {
-  box-sizing: initial;
+  box-sizing: inherit;
   margin: 0;
   padding: 0;
-  font-size: inherit;
 }
 
 body {
   min-height: 100vh;
-  overflow-x: none;
+  overflow-x: hidden;
 }
 
 /*|| making them fit inside the container */
@@ -57,6 +56,8 @@ ol[role=list] {
 }
 
 a,
+a:focus,
+a:active,
 a:visited {
   text-decoration: none;
 }
@@ -126,13 +127,87 @@ body {
 /*------------------------------*\
     #modal
 \*------------------------------*/
-.modal {
-  max-width: 34rem;
+.modal, .modal--active {
   min-height: 20rem;
   width: 100%;
   height: 100%;
-  background-color: red;
-  border-radius: 2rem;
+  display: none;
+  color: var(--text-color);
+}
+.modal--active {
+  display: block;
+  animation: zoomInUp;
+  animation-duration: 1s;
+}
+.modal__dialog {
+  box-shadow: 3px 0px 28px;
+}
+.modal-wrapper {
+  padding: 1rem 2rem;
+  background-color: var(--list-bg);
+  border-radius: 3%;
+}
+.modal__header {
+  border-bottom: 1px solid var(--text-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  padding: 1rem 0;
+}
+.modal__btn {
+  border: 1px solid var(--text-color);
+}
+.modal__body {
+  border-bottom: 1px solid var(--text-color);
+}
+.modal__field-wrapper {
+  padding: 1rem 0;
+  display: grid;
+  grid: 1fr/40% auto 40%;
+  column-gap: 1rem;
+  overflow-x: hidden;
+}
+.modal__input-hsl {
+  max-width: 100%;
+  padding: 0.2rem 0.5rem;
+}
+.modal__footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-direction: row;
+  padding: 1rem 0 0 0;
+}
+.modal__btn {
+  background-color: inherit;
+  color: inherit;
+}
+.modal__btn + .modal__btn {
+  margin-left: 1rem;
+}
+
+/*------------------------------*\
+    #modal
+\*------------------------------*/
+.btn {
+  cursor: pointer;
+}
+.btn:hover {
+  filter: brightness(150%);
+}
+.btn--xs {
+  height: 2rem;
+  width: 2rem;
+  background: url("/icon-cross.cd00f724.svg") no-repeat center;
+}
+.btn--s {
+  height: 2rem;
+  width: 3rem;
+}
+.btn--l {
+  height: 2rem;
+  width: 6rem;
 }
 /*------------------------------*\
     #todo
@@ -176,16 +251,16 @@ body {
   color: var(--text-hover);
 }
 .todo__theme-switch, .todo__theme-switch--active {
-  width: 1.2rem;
-  height: 1.2rem;
+  width: 1.6rem;
+  height: 1.6rem;
   background: url("/icons8-settings.a3fa8f92.svg") center/contain no-repeat;
   z-index: 10;
 }
-.todo__theme-switch:hover, .todo__theme-switch--active:hover {
-  animation: reverseRotation 2s ease-in-out infinite 300ms;
+.todo__theme-switch:focus, .todo__theme-switch--active:focus {
+  animation: reverseRotation 1s ease-in-out 1;
 }
-.todo__theme-switch--active:hover {
-  animation: rotation 2s ease-in-out infinite 300ms;
+.todo__theme-switch--active:focus {
+  animation: rotation 1s ease-in-out 1;
 }
 .todo__form {
   display: inline-block;
@@ -250,7 +325,7 @@ body {
 }
 .todo__nav--active {
   visibility: visible;
-  width: 32%;
+  width: 38%;
   height: 100%;
   transform: translateY(-50%);
   border-radius: 0.5rem;
@@ -267,6 +342,10 @@ body {
   justify-content: center;
   flex-direction: column;
 }
+.todo__nav-icon:hover {
+  transition: all 1s ease;
+  transform: scale(1.2) translateY(-20%);
+}
 .todo__nav-icon--sun {
   background: url("/icon-sun.57f9ab7b.svg") no-repeat center;
 }
@@ -277,11 +356,19 @@ body {
   background: url("/icon-adjustment.3638a1f8.png") center/contain no-repeat;
 }
 .todo__modal {
-  display: none;
+  transition: all 1s ease-in-out;
   position: absolute;
-  top: 50%;
   left: 50%;
-  transform: translate(-50%, 25%);
+  top: 150%;
+  transform: translate(-50%, -50%);
+}
+@media screen and (min-width: 62em) {
+  .todo__modal {
+    top: 100%;
+  }
+}
+.todo__btn > .todo__btn {
+  margin-right: 1rem;
 }
 @media screen and (min-width: 43em) {
   .todo__header {
@@ -293,6 +380,9 @@ body {
   }
   .todo__circle {
     width: 5rem;
+  }
+  .todo__nav--active {
+    width: 32%;
   }
 }
 @media screen and (min-width: 62em) {
@@ -342,7 +432,7 @@ body {
   --text-hover: hsl(236, 33%, 92%);
   --text-completed-primary: hsl(236, 9%, 61%);
   --text-completed-seconday: hsl(237, 14%, 26%);
-  --color-text: hsl(235, 19%, 35%);
+  --text-color: hsl(235, 19%, 35%);
   --header-bg-image-mobile: url("/bg-mobile-light.91debd6d.jpg");
   --header-bg-image-desktop: url("/bg-desktop-light.94544906.jpg");
   --theme-icon: url("/icon-moon.40322708.svg");
