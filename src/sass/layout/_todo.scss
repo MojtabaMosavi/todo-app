@@ -16,6 +16,8 @@
 
   &__header-wrapper {
     padding-top: 2.6rem;
+    animation: slideInLeft;
+    animation-duration: 1s;
   }
 
   // positioned relative because contain todo__nav
@@ -62,12 +64,14 @@
   }
 
   &__input-wrapper {
-    display: flex;
+    display: grid;
+    grid: 1fr / 17% auto;
+    align-items: center;
+    justify-items: center;
+    background-color: var(--list-bg);
   }
 
   &__circle {
-    width: 4em;
-    background-color: var(--list-bg);
     position: relative;
 
     &-fill {
@@ -162,7 +166,7 @@
   }
 
   /*------------------------------*\
-    #modal styles
+    #todo__modal 
   \*------------------------------*/
   &__modal {
     transition: v.$primary;
@@ -176,9 +180,63 @@
     }
   }
 
-  &__btn {
-    & > & {
-      margin-right: 1rem;
+  /*------------------------------*\
+    #todo__list
+  \*------------------------------*/
+
+  &__main {
+    position: absolute;
+    width: 100%;
+    top: 85.5%;
+    animation: slideInRight;
+    animation-duration: 1s;
+  }
+
+  &__main--wrapper {
+  }
+
+  &__list {
+    border-radius: 0.4rem;
+    background: var(--list-bg);
+    color: var(--text-color);
+  }
+
+  &__item {
+    border-bottom: 1px solid var(--text-completed-primary);
+    &-wrapper {
+      display: grid;
+      grid: 1fr / 17% auto 16%;
+      align-items: center;
+      padding: 1rem 0;
+      min-height: 3.2rem;
+    }
+
+    &-circle {
+      justify-self: center;
+
+      &--active {
+        @extend .todo__item-circle;
+        .todo__item-circle-fill {
+          background: url("../assets/images/icon-check.svg") no-repeat center,
+            linear-gradient(
+              112deg,
+              var(--Check-Background-From),
+              var(--Check-Background-To)
+            );
+        }
+      }
+    }
+
+    &-text {
+      text-align: left;
+      font-size: 0.7rem;
+      flex: 3;
+
+      &--complete {
+        font-size: 0.7rem;
+        text-decoration: line-through;
+        color: var(--text-completed-primary);
+      }
     }
   }
 
@@ -194,15 +252,38 @@
       width: 2rem;
       height: 2rem;
     }
+    &__input-wrapper {
+      grid: 1fr/13% auto;
+    }
 
     &__circle {
-      width: 5rem;
+      &-fill {
+        width: 1.6rem;
+        height: 1.6rem;
+      }
     }
 
     &__nav {
       &--active {
         width: 32%;
       }
+    }
+
+    &__main {
+      top: 82%;
+    }
+
+    &__item-wrapper {
+      min-height: 3.9rem;
+      grid: 1fr/13% auto 10%;
+    }
+
+    &__item-text {
+      font-size: 1rem;
+    }
+
+    &__item-btn {
+      height: 1.2rem;
     }
   }
 
@@ -224,11 +305,11 @@
     }
 
     &__form {
-      margin-bottom: 4.3rem;
+      margin-bottom: 4.5rem;
     }
 
     &__input {
-      padding: 1.6rem 0;
+      padding: 1.5rem 0;
       font-size: 1.125rem;
     }
   }

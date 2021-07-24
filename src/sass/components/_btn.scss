@@ -6,9 +6,16 @@
 
 .btn {
   cursor: pointer;
+  background-color: inherit;
+  color: inherit;
 
   &:hover {
     filter: brightness(150%);
+  }
+
+  &--xxs {
+    width: 3rem;
+    height: 0.7rem;
   }
 
   &--xs {
@@ -27,6 +34,13 @@
     width: 6rem;
   }
 
-  &--close {
+  &--cross {
+    background: url("../assets/images/icon-cross.svg") center / contain
+      no-repeat;
+  }
+
+  &--checked {
+    background: url("../assets/images/icon-check.svg") center / contain
+      no-repeat;
   }
 }

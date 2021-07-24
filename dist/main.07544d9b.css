@@ -192,9 +192,15 @@ body {
 \*------------------------------*/
 .btn {
   cursor: pointer;
+  background-color: inherit;
+  color: inherit;
 }
 .btn:hover {
   filter: brightness(150%);
+}
+.btn--xxs {
+  width: 3rem;
+  height: 0.7rem;
 }
 .btn--xs {
   height: 2rem;
@@ -209,6 +215,13 @@ body {
   height: 2rem;
   width: 6rem;
 }
+.btn--cross {
+  background: url("/icon-cross.cd00f724.svg") center/contain no-repeat;
+}
+.btn--checked {
+  background: url("/icon-check.81e08cfe.svg") center/contain no-repeat;
+}
+
 /*------------------------------*\
     #todo
 \*------------------------------*/
@@ -218,7 +231,10 @@ body {
     #todo__nav
   \*------------------------------*/
   /*------------------------------*\
-    #modal styles
+    #todo__modal 
+  \*------------------------------*/
+  /*------------------------------*\
+    #todo__list
   \*------------------------------*/
   /*------------------------------*\
     #tablet styles
@@ -235,6 +251,8 @@ body {
 }
 .todo__header-wrapper {
   padding-top: 2.6rem;
+  animation: slideInLeft;
+  animation-duration: 1s;
 }
 .todo__items-wrapper {
   display: flex;
@@ -272,11 +290,13 @@ body {
   overflow: hidden;
 }
 .todo__input-wrapper {
-  display: flex;
+  display: grid;
+  grid: 1fr/17% auto;
+  align-items: center;
+  justify-items: center;
+  background-color: var(--list-bg);
 }
 .todo__circle {
-  width: 4em;
-  background-color: var(--list-bg);
   position: relative;
 }
 .todo__circle-fill {
@@ -367,8 +387,43 @@ body {
     top: 100%;
   }
 }
-.todo__btn > .todo__btn {
-  margin-right: 1rem;
+.todo__main {
+  position: absolute;
+  width: 100%;
+  top: 85.5%;
+  animation: slideInRight;
+  animation-duration: 1s;
+}
+.todo__list {
+  border-radius: 0.4rem;
+  background: var(--list-bg);
+  color: var(--text-color);
+}
+.todo__item {
+  border-bottom: 1px solid var(--text-completed-primary);
+}
+.todo__item-wrapper {
+  display: grid;
+  grid: 1fr/17% auto 16%;
+  align-items: center;
+  padding: 1rem 0;
+  min-height: 3.2rem;
+}
+.todo__item-circle, .todo__item-circle--active {
+  justify-self: center;
+}
+.todo__item-circle--active .todo__item-circle-fill {
+  background: url("/icon-check.81e08cfe.svg") no-repeat center, linear-gradient(112deg, var(--Check-Background-From), var(--Check-Background-To));
+}
+.todo__item-text {
+  text-align: left;
+  font-size: 0.7rem;
+  flex: 3;
+}
+.todo__item-text--complete {
+  font-size: 0.7rem;
+  text-decoration: line-through;
+  color: var(--text-completed-primary);
 }
 @media screen and (min-width: 43em) {
   .todo__header {
@@ -378,11 +433,28 @@ body {
     width: 2rem;
     height: 2rem;
   }
-  .todo__circle {
-    width: 5rem;
+  .todo__input-wrapper {
+    grid: 1fr/13% auto;
+  }
+  .todo__circle-fill {
+    width: 1.6rem;
+    height: 1.6rem;
   }
   .todo__nav--active {
     width: 32%;
+  }
+  .todo__main {
+    top: 82%;
+  }
+  .todo__item-wrapper {
+    min-height: 3.9rem;
+    grid: 1fr/13% auto 10%;
+  }
+  .todo__item-text {
+    font-size: 1rem;
+  }
+  .todo__item-btn {
+    height: 1.2rem;
   }
 }
 @media screen and (min-width: 62em) {
@@ -397,10 +469,10 @@ body {
     letter-spacing: 1.1rem;
   }
   .todo__form {
-    margin-bottom: 4.3rem;
+    margin-bottom: 4.5rem;
   }
   .todo__input {
-    padding: 1.6rem 0;
+    padding: 1.5rem 0;
     font-size: 1.125rem;
   }
 }

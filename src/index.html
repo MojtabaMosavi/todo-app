@@ -11,7 +11,7 @@
 />
   <link rel="stylesheet" href="./sass/main.scss">
 
-  <title>Frontend Mentor | Todo app</title>
+  <title>Todo app</title>
 
 </head>
 <body>
@@ -67,13 +67,47 @@
                        placeholder="Create a new todo..."
                        autocomplete="on">
               </div>
-            </form>
+            </form><!-- End of form__todo -->
           
           </div>
         </div>
       </header><!-- End of todo__header-->
 
+      <section class="todo__main">
+        <div class="todo__main-wrapper container">
+          <ul class="todo__list " role="list">
 
+            <li class="todo__item">
+              <div class="todo__item-wrapper">
+                <button class="todo__circle todo__item-circle" 
+                        type="button"
+                        aria-label="check the item">
+                  <i class="todo__circle-fill todo__item-circle-fill"></i>
+                </button>
+                <p class="todo__item-text"> Fist itme of the list </p>
+                <button class="todo__item-btn btn btn--cross btn--xxs" 
+                        type="button"
+                        aria-label="delete the item">
+                </button>
+  
+              </div>
+            </li>
+
+            <li class="todo__item">
+              <div class="todo__item-wrapper">
+                <button class="todo__circle todo__item-circle" type="button">
+                  <i class="todo__circle-fill todo__item-circle-fill"></i>
+                </button>
+                <p class="todo__item-text"> Fist itme of the list </p>
+                <button class="todo__item-btn btn btn--cross btn--xxs" type="button"></button>
+  
+              </div>
+            </li>
+  
+          </ul>
+        </div>
+
+      </section>
 
       <div class="modal todo__modal container" role="dialog" tabindex="0">
         <div class="modal__dialog ">
@@ -91,42 +125,63 @@
                   <h3 class="modal__input-heading">Background color:</h3>
                   <div class="modal__input-wrapper">
                     <label for="colorRange">RGB:</label>
-                    <input  class="modal__input-rgb" type="color" name="color" id="colorRange" >
+                    <input  class="modal__input-rgb"
+                            type="color" 
+                            name="color" 
+                            id="bacgroundColorRgb" >
                   </div>
 
                   <div class="modal__input-wrapper">
                     <label for="colorRange">HSl:</label>
-                    <input class="modal__input-hsl" type="text" name="color" id="colorRange" placeholder="HSL color">
+                    <input class="modal__input-hsl" 
+                           type="text" 
+                           name="color" 
+                           id="bacgroundColorHsl" 
+                           placeholder="HSL color">
                   </div>
-                </div>
+                </div><!-- End of background color -->
                 
                            
                 <div class="modal__field-wrapper">
                   <h3 class="modal__input-heading">Text color:</h3>
                   <div class="modal__input-wrapper">
                     <label for="colorRange">RGB:</label>
-                    <input  class="modal__input-rgb" type="color" name="color" id="colorRange" >
+                    <input  class="modal__input-rgb" 
+                            type="color" 
+                            name="color" 
+                            id="textColorRgb" >
                   </div>
 
                   <div class="modal__input-wrapper">
                     <label for="colorRange">HSl:</label>
-                    <input class="modal__input-hsl" type="text" name="color" id="colorRange" placeholder="HSL color">
+                    <input class="modal__input-hsl" 
+                           type="text" 
+                           name="color" 
+                           id="ctextColorHsl" 
+                           placeholder="HSl color">
                   </div>
-                </div>
+                </div><!-- End of text color-->
                 
                 
                 <div class="modal__field-wrapper">
                   <h3 class="modal__input-heading">List Background Color:</h3>
                   <div class="modal__input-wrapper">
                     <label for="colorRange">RGB:</label>
-                    <input  class="modal__input-rgb" type="color" name="color" id="colorRange" >
+                    <input  class="modal__input-rgb" 
+                            type="color" 
+                            name="color" 
+                            id="ListBacgroundColorRgb" >
                   </div>
 
                   <div class="modal__input-wrapper">
                     <label for="colorRange">HSl:</label>
-                    <input class="modal__input-hsl" type="text" name="color" id="colorRange" placeholder="HSL color">
+                    <input class="modal__input-hsl" 
+                           type="text" 
+                           name="color" 
+                           id="colorRange" 
+                           placeholder="HSL color">
                   </div>
-                </div>
+                </div><!-- End of List background-->
 
               </form>
             </div>
