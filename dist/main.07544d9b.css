@@ -19,6 +19,7 @@
   --Bright-Blue: hsl(220, 98%, 61%);
   --Check-Background-From: hsl(192, 100%, 67%);
   --Check-Background-To: hsl(280, 87%, 65%);
+  --white: hsl(0, 0, 100%);
 }
 
 /*------------------------------*\
@@ -41,6 +42,8 @@ html {
 body {
   min-height: 100vh;
   overflow-x: hidden;
+  background-color: var(--main-bg);
+  transition: all 300ms ease-in-out;
 }
 
 /*|| making them fit inside the container */
@@ -64,6 +67,9 @@ a:visited {
 
 button {
   border: none;
+}
+button:hover {
+  color: var(--text-hover);
 }
 
 /*||remove the default styles for a and buttons on focus state but reset them when element is tabed.*/
@@ -227,6 +233,7 @@ body {
 \*------------------------------*/
 .todo {
   position: relative;
+  transition: all 300ms ease-in-out;
   /*------------------------------*\
     #todo__nav
   \*------------------------------*/
@@ -235,6 +242,9 @@ body {
   \*------------------------------*/
   /*------------------------------*\
     #todo__list
+  \*------------------------------*/
+  /*------------------------------*\
+    #todo__features
   \*------------------------------*/
   /*------------------------------*\
     #tablet styles
@@ -251,8 +261,8 @@ body {
 }
 .todo__header-wrapper {
   padding-top: 2.6rem;
-  animation: slideInLeft;
-  animation-duration: 1s;
+  animation: backInUp;
+  animation-duration: 2s;
 }
 .todo__items-wrapper {
   display: flex;
@@ -266,7 +276,7 @@ body {
   font-size: 1.7rem;
   letter-spacing: 0.75rem;
   font-weight: 500;
-  color: var(--text-hover);
+  color: var(--white);
 }
 .todo__theme-switch, .todo__theme-switch--active {
   width: 1.6rem;
@@ -312,7 +322,6 @@ body {
 .todo__input {
   width: 100%;
   padding: 1.2rem 0;
-  outline: none;
   border: none;
   background-color: var(--list-bg);
   font-size: 0.75rem;
@@ -391,7 +400,7 @@ body {
   position: absolute;
   width: 100%;
   top: 85.5%;
-  animation: slideInRight;
+  animation: backInLeft;
   animation-duration: 1s;
 }
 .todo__list {
@@ -407,7 +416,7 @@ body {
   grid: 1fr/17% auto 16%;
   align-items: center;
   padding: 1rem 0;
-  min-height: 3.2rem;
+  min-height: 3.25rem;
 }
 .todo__item-circle, .todo__item-circle--active {
   justify-self: center;
@@ -425,6 +434,50 @@ body {
   text-decoration: line-through;
   color: var(--text-completed-primary);
 }
+.todo__features {
+  background-color: var(--main-bg);
+  color: var(--text-completed-primary);
+}
+.todo__features-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  background-color: var(--list-bg);
+  padding: 1.1rem;
+  margin-bottom: 1rem;
+  border-radius: 0 0 0.4rem 0.4rem;
+}
+.todo__features-heading {
+  font-size: 0.7rem;
+  font-weight: 500;
+  word-spacing: 0.2rem;
+}
+.todo__features-btn {
+  background-color: inherit;
+  color: var(--text-completed-primary);
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+.todo__features-btn--m {
+  font-size: 0.9rem;
+}
+.todo__features-main {
+  transition: all 1s ease-in-out;
+  border-radius: 0.4rem;
+  animation: backInUp;
+  animation-duration: 1s;
+  background-color: var(--list-bg);
+  padding: 1rem;
+}
+.todo__features-main-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  max-width: 10rem;
+  margin: 0 auto;
+}
 @media screen and (min-width: 43em) {
   .todo__header {
     background: var(--header-bg-image-desktop) top center/cover no-repeat;
@@ -435,6 +488,9 @@ body {
   }
   .todo__input-wrapper {
     grid: 1fr/13% auto;
+  }
+  .todo__form {
+    margin-bottom: 4.5rem;
   }
   .todo__circle-fill {
     width: 1.6rem;
@@ -456,6 +512,16 @@ body {
   .todo__item-btn {
     height: 1.2rem;
   }
+  .todo__features {
+    position: relative;
+  }
+  .todo__features-main {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 54%;
+  }
 }
 @media screen and (min-width: 62em) {
   .todo__header-wrapper {
@@ -467,9 +533,6 @@ body {
   .todo__logo {
     font-size: 2.5rem;
     letter-spacing: 1.1rem;
-  }
-  .todo__form {
-    margin-bottom: 4.5rem;
   }
   .todo__input {
     padding: 1.5rem 0;
@@ -501,7 +564,7 @@ body {
   --list-bg: hsl(0, 0%, 98%);
   --main-bg: hsl(236, 33%, 92%);
   --text-gray: hsl(233, 11%, 84%);
-  --text-hover: hsl(236, 33%, 92%);
+  --text-hover: hsl(240, 4%, 5%);
   --text-completed-primary: hsl(236, 9%, 61%);
   --text-completed-seconday: hsl(237, 14%, 26%);
   --text-color: hsl(235, 19%, 35%);

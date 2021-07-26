@@ -6,6 +6,7 @@
 
 .todo {
   position: relative;
+  transition: all 300ms ease-in-out;
 
   &__header {
     width: 100%;
@@ -16,8 +17,8 @@
 
   &__header-wrapper {
     padding-top: 2.6rem;
-    animation: slideInLeft;
-    animation-duration: 1s;
+    animation: backInUp;
+    animation-duration: 2s;
   }
 
   // positioned relative because contain todo__nav
@@ -31,7 +32,7 @@
     font-size: 1.7rem;
     letter-spacing: 0.75rem;
     font-weight: 500;
-    color: var(--text-hover);
+    color: var(--white);
   }
 
   &__theme-switch {
@@ -89,7 +90,6 @@
   &__input {
     width: 100%;
     padding: 1.2rem 0;
-    outline: none;
     border: none;
     background-color: var(--list-bg);
     font-size: 0.75rem;
@@ -188,11 +188,8 @@
     position: absolute;
     width: 100%;
     top: 85.5%;
-    animation: slideInRight;
+    animation: backInLeft;
     animation-duration: 1s;
-  }
-
-  &__main--wrapper {
   }
 
   &__list {
@@ -208,7 +205,7 @@
       grid: 1fr / 17% auto 16%;
       align-items: center;
       padding: 1rem 0;
-      min-height: 3.2rem;
+      min-height: 3.25rem;
     }
 
     &-circle {
@@ -241,6 +238,52 @@
   }
 
   /*------------------------------*\
+    #todo__features
+  \*------------------------------*/
+  &__features {
+    background-color: var(--main-bg);
+    color: var(--text-completed-primary);
+    &-header {
+      @include v.flex-container();
+      background-color: var(--list-bg);
+      padding: 1.1rem;
+      margin-bottom: 1rem;
+      border-radius: 0 0 0.4rem 0.4rem;
+    }
+
+    &-heading {
+      font-size: 0.7rem;
+      font-weight: 500;
+      word-spacing: 0.2rem;
+    }
+
+    &-btn {
+      background-color: inherit;
+      color: var(--text-completed-primary);
+      font-size: 0.75rem;
+      font-weight: 500;
+
+      &--m {
+        font-size: 0.9rem;
+      }
+    }
+
+    &-main {
+      transition: v.$primary;
+      border-radius: 0.4rem;
+      animation: backInUp;
+      animation-duration: 1s;
+      &-wrapper {
+        @include v.flex-container();
+        max-width: 10rem;
+        margin: 0 auto;
+      }
+      background-color: var(--list-bg);
+      padding: 1rem;
+    }
+  }
+
+  /*------------------------------*\
     #tablet styles
   \*------------------------------*/
   @include v.respond-to("tablet") {
@@ -254,6 +297,10 @@
     }
     &__input-wrapper {
       grid: 1fr/13% auto;
+    }
+
+    &__form {
+      margin-bottom: 4.5rem;
     }
 
     &__circle {
@@ -285,6 +332,18 @@
     &__item-btn {
       height: 1.2rem;
     }
+
+    &__features {
+      position: relative;
+
+      &-main {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 54%;
+      }
+    }
   }
 
   /*------------------------------*\
@@ -302,10 +361,6 @@
     &__logo {
       font-size: 2.5rem;
       letter-spacing: 1.1rem;
-    }
-
-    &__form {
-      margin-bottom: 4.5rem;
     }
 
     &__input {

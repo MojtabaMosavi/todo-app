@@ -14,9 +14,9 @@
   <title>Todo app</title>
 
 </head>
-<body>
+<body class="light-theme">
 
-  <main class="todo dark-theme " aria-label="main" id="todo-bg">
+  <main class="todo" aria-label="main" id="todo-bg">
 
       <header class="todo__header">
         <div class="todo__header-wrapper container">
@@ -65,7 +65,10 @@
                 <input class="todo__input" 
                        type="text" name="todo-data" 
                        placeholder="Create a new todo..."
-                       autocomplete="on">
+                       autocomplete="on"
+                       aria-label="Add a to do"
+                       id="todo"
+                       title="add a new todo">
               </div>
             </form><!-- End of form__todo -->
           
@@ -79,15 +82,23 @@
 
             <li class="todo__item">
               <div class="todo__item-wrapper">
+
                 <button class="todo__circle todo__item-circle" 
                         type="button"
-                        aria-label="check the item">
+                        aria-label="check the item"
+                        title="check">
                   <i class="todo__circle-fill todo__item-circle-fill"></i>
                 </button>
-                <p class="todo__item-text"> Fist itme of the list </p>
+
+                <button class="todo__item-text btn" 
+                        type="button" 
+                        aria-label="todo text"> Fist itme of the list 
+                </button>
+
                 <button class="todo__item-btn btn btn--cross btn--xxs" 
                         type="button"
-                        aria-label="delete the item">
+                        aria-label="delete the item"
+                        title="delete">
                 </button>
   
               </div>
@@ -103,11 +114,70 @@
   
               </div>
             </li>
+            <li class="todo__item">
+              <div class="todo__item-wrapper">
+                <button class="todo__circle todo__item-circle" type="button">
+                  <i class="todo__circle-fill todo__item-circle-fill"></i>
+                </button>
+                <p class="todo__item-text"> Fist itme of the list </p>
+                <button class="todo__item-btn btn btn--cross btn--xxs" type="button"></button>
   
+              </div>
+            </li>
+            <li class="todo__item">
+              <div class="todo__item-wrapper">
+                <button class="todo__circle todo__item-circle" type="button">
+                  <i class="todo__circle-fill todo__item-circle-fill"></i>
+                </button>
+                <p class="todo__item-text"> Fist itme of the list </p>
+                <button class="todo__item-btn btn btn--cross btn--xxs" type="button"></button>
+  
+              </div>
+            </li>
+            <li class="todo__item">
+              <div class="todo__item-wrapper">
+                <button class="todo__circle todo__item-circle" type="button">
+                  <i class="todo__circle-fill todo__item-circle-fill"></i>
+                </button>
+                <p class="todo__item-text"> Fist itme of the list </p>
+                <button class="todo__item-btn btn btn--cross btn--xxs" type="button"></button>
+  
+              </div>
+            </li>
+            <li class="todo__item">
+              <div class="todo__item-wrapper">
+                <button class="todo__circle todo__item-circle" type="button">
+                  <i class="todo__circle-fill todo__item-circle-fill"></i>
+                </button>
+                <p class="todo__item-text"> Fist itme of the list </p>
+                <button class="todo__item-btn btn btn--cross btn--xxs" type="button"></button>
+  
+              </div>
+            </li>
+            
+            <li class="todo__features">
+              <div class="todo__features-wrapper">
+
+                <div class="todo__features-header">
+                  <h2 class="todo__features-heading">5 item left</h2>
+                  <button class="todo__features-btn" type="button"> Clear Completed</button>
+                </div>
+
+                <div class="todo__features-main">
+                  <div class="todo__features-main-wrapper">
+                    <button class="todo__features-btn btn todo__features-btn--m" type="button">All</button>
+                    <button class="todo__features-btn btn todo__features-btn--m" type="button">Active</button>
+                    <button class="todo__features-btn btn todo__features-btn--m" type="button">Completed</button>
+                  </div>
+                </div>
+
+
+              </div>
+            </li>
           </ul>
         </div>
 
-      </section>
+      </section><!-- End of the list -->
 
       <div class="modal todo__modal container" role="dialog" tabindex="0">
         <div class="modal__dialog ">
@@ -205,7 +275,8 @@
     const sun = document.querySelector(".todo__nav-icon--sun");
     const custom = document.querySelector(".todo__nav-icon--custom");
     const modal = document.querySelector(".modal");
-
+    const body = document.getElementsByTagName("body")[0];
+    console.log(body)
 
     nav.addEventListener("click", () => {
       nav.classList.toggle("todo__theme-switch--active")
@@ -213,14 +284,16 @@
     })
 
     moon.addEventListener("click", ()=> {
-      app.classList.add("dark-theme");
-      app.classList.remove("light-theme");
+
+      body.classList.add("dark-theme");
+      body.classList.remove("light-theme");
 
     }) 
 
     sun.addEventListener("click", ()=> {
-      app.classList.add("light-theme");
-      app.classList.remove("dark-theme");
+
+      body.classList.remove("dark-theme");
+      body.classList.add("light-theme");
 
     })
 

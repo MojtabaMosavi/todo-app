@@ -19,6 +19,8 @@ html {
 body {
   min-height: 100vh;
   overflow-x: hidden;
+  background-color: var(--main-bg);
+  transition: all 300ms ease-in-out;
 }
 
 /*|| making them fit inside the container */
@@ -43,6 +45,10 @@ a:visited {
 
 button {
   border: none;
+
+  &:hover {
+    color: var(--text-hover);
+  }
 }
 
 /*||remove the default styles for a and buttons on focus state but reset them when element is tabed.*/
