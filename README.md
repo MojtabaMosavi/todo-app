@@ -34,7 +34,7 @@ Users should be able to:
 
 ### Links
 
-- Live Site URL: [todo-app](https://goofy-meninsky-eff547.netlify.app/)
+- Live Site URL: [https://todo-app-eff547.netlify.app/](https://goofy-meninsky-eff547.netlify.app/)
 
 ## My process
 
