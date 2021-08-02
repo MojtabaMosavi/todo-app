@@ -6,7 +6,6 @@
 
 .btn {
   cursor: pointer;
-  background-color: inherit;
   color: inherit;
 
   &:hover {
@@ -19,9 +18,8 @@
   }
 
   &--xs {
-    height: 2rem;
-    width: 2rem;
-    background: url("../assets/images/icon-cross.svg") no-repeat center;
+    height: 0.9rem;
+    width: 3rem;
   }
 
   &--s {
@@ -30,8 +28,12 @@
   }
 
   &--l {
-    height: 2rem;
-    width: 6rem;
+    height: 3rem;
+    width: 8rem;
+  }
+
+  &--inherit-bg {
+    background-color: inherit;
   }
 
   &--cross {

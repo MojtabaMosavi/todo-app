@@ -9,6 +9,7 @@
   --Check-Background-From: hsl(192, 100%, 67%);
   --Check-Background-To: hsl(280, 87%, 65%);
   --white: hsl(0, 0, 100%);
+  --white-logo: hsl(0, 0, 100%);
 }
 
 // font variables
@@ -17,7 +18,7 @@ $font-primary: "Rubik", sans-serif;
 $fontsize-textinput: 18px;
 
 // transition
-$primary: all 1s ease-in-out;
+$primary-transition: all 1s ease-in-out;
 
 // breakpoint used in media queries
 $breakpoints: (

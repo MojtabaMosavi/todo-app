@@ -10,6 +10,7 @@
   height: 100%;
   display: none;
   color: var(--text-color);
+  border-radius: 1rem;
 
   &--active {
     @extend .modal;
@@ -18,23 +19,19 @@
     animation-duration: 1s;
   }
   &__dialog {
-    box-shadow: 3px 0px 28px;
   }
 
   &-wrapper {
-    padding: 1rem 2rem;
+    padding: 1rem 3rem;
     background-color: var(--list-bg);
-    border-radius: 3%;
+    border-radius: 3rem;
+    box-shadow: 0px 0px 4px;
   }
 
   &__header {
     border-bottom: 1px solid var(--text-color);
     @include v.flex-container();
     padding: 1rem 0;
-  }
-
-  &__btn {
-    border: 1px solid var(--text-color);
   }
 
   &__title {
@@ -47,27 +44,43 @@
   &__field-wrapper {
     padding: 1rem 0;
     display: grid;
-    grid: 1fr / 40% auto 40%;
-    column-gap: 1rem;
-    overflow-x: hidden;
+    grid: 1fr / 48% 50%;
+    align-items: center;
+  }
+  &__input-wrapper {
+    justify-self: end;
+  }
+
+  &__input-rgb {
+    position: relative;
+    height: 2rem;
   }
 
   &__input-hsl {
     max-width: 100%;
     padding: 0.2rem 0.5rem;
+    border-radius: 1rem;
+    border: 1px solid;
   }
 
   &__footer {
-    @include v.flex-container($js-con: flex-end);
-    padding: 1rem 0 0 0;
+    padding: 2rem 0 0 0;
+    position: relative;
   }
 
   &__btn {
-    background-color: inherit;
     color: inherit;
-  }
 
-  &__btn + &__btn {
-    margin-left: 1rem;
+    &--position {
+      position: absolute;
+      left: 50%;
+      top: 100%;
+      transform: translate(-50%, -25%);
+    }
+
+    &--submit {
+      background-color: var(--Bright-Blue);
+      border-radius: 2rem;
+    }
   }
 }

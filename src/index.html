@@ -10,11 +10,11 @@
   href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
 />
   <link rel="stylesheet" href="./sass/main.scss">
-
+  <script src="js/main.js" type="module" defer></script>
   <title>Todo app</title>
 
 </head>
-<body class="light-theme">
+<body class="dark-theme">
 
   <main class="todo" aria-label="main" id="todo-bg">
 
@@ -57,134 +57,86 @@
               </ul>
             </div><!-- End of todo__items-wrapper -->
 
-            <form action="post" class="form todo__form" autocomplete="on">
+            <form action="post" class="form todo__form">
               <div class="todo__input-wrapper">
                 <div class="todo__circle">
-                  <i class="todo__circle-fill"></i>
+                  <i class="todo__circle-fill--disabled"></i>
                 </div>
                 <input class="todo__input" 
                        type="text" name="todo-data" 
                        placeholder="Create a new todo..."
-                       autocomplete="on"
+                       autocomplete="off"
                        aria-label="Add a to do"
                        id="todo"
                        title="add a new todo">
               </div>
+
+              <div class="todo__form-animation"></div>
             </form><!-- End of form__todo -->
           
           </div>
         </div>
       </header><!-- End of todo__header-->
 
+
+
+      
       <section class="todo__main">
         <div class="todo__main-wrapper container">
           <ul class="todo__list " role="list">
 
-            <li class="todo__item">
-              <div class="todo__item-wrapper">
-
-                <button class="todo__circle todo__item-circle" 
-                        type="button"
-                        aria-label="check the item"
-                        title="check">
-                  <i class="todo__circle-fill todo__item-circle-fill"></i>
-                </button>
-
-                <button class="todo__item-text btn" 
-                        type="button" 
-                        aria-label="todo text"> Fist itme of the list 
-                </button>
-
-                <button class="todo__item-btn btn btn--cross btn--xxs" 
-                        type="button"
-                        aria-label="delete the item"
-                        title="delete">
-                </button>
-  
-              </div>
-            </li>
-
-            <li class="todo__item">
-              <div class="todo__item-wrapper">
-                <button class="todo__circle todo__item-circle" type="button">
-                  <i class="todo__circle-fill todo__item-circle-fill"></i>
-                </button>
-                <p class="todo__item-text"> Fist itme of the list </p>
-                <button class="todo__item-btn btn btn--cross btn--xxs" type="button"></button>
-  
-              </div>
-            </li>
-            <li class="todo__item">
-              <div class="todo__item-wrapper">
-                <button class="todo__circle todo__item-circle" type="button">
-                  <i class="todo__circle-fill todo__item-circle-fill"></i>
-                </button>
-                <p class="todo__item-text"> Fist itme of the list </p>
-                <button class="todo__item-btn btn btn--cross btn--xxs" type="button"></button>
-  
-              </div>
-            </li>
-            <li class="todo__item">
-              <div class="todo__item-wrapper">
-                <button class="todo__circle todo__item-circle" type="button">
-                  <i class="todo__circle-fill todo__item-circle-fill"></i>
-                </button>
-                <p class="todo__item-text"> Fist itme of the list </p>
-                <button class="todo__item-btn btn btn--cross btn--xxs" type="button"></button>
-  
-              </div>
-            </li>
-            <li class="todo__item">
-              <div class="todo__item-wrapper">
-                <button class="todo__circle todo__item-circle" type="button">
-                  <i class="todo__circle-fill todo__item-circle-fill"></i>
-                </button>
-                <p class="todo__item-text"> Fist itme of the list </p>
-                <button class="todo__item-btn btn btn--cross btn--xxs" type="button"></button>
-  
-              </div>
-            </li>
-            <li class="todo__item">
-              <div class="todo__item-wrapper">
-                <button class="todo__circle todo__item-circle" type="button">
-                  <i class="todo__circle-fill todo__item-circle-fill"></i>
-                </button>
-                <p class="todo__item-text"> Fist itme of the list </p>
-                <button class="todo__item-btn btn btn--cross btn--xxs" type="button"></button>
-  
-              </div>
-            </li>
-            
             <li class="todo__features">
               <div class="todo__features-wrapper">
 
                 <div class="todo__features-header">
-                  <h2 class="todo__features-heading">5 item left</h2>
-                  <button class="todo__features-btn" type="button"> Clear Completed</button>
+                  <h2 class="todo__features-heading">0 item left</h2>
+                  <button class="todo__features-btn todo__features-completed" 
+                          type="button"
+                          title="clear all completed">Clear Completed
+                  </button>
+
                 </div>
 
                 <div class="todo__features-main">
                   <div class="todo__features-main-wrapper">
-                    <button class="todo__features-btn btn todo__features-btn--m" type="button">All</button>
-                    <button class="todo__features-btn btn todo__features-btn--m" type="button">Active</button>
-                    <button class="todo__features-btn btn todo__features-btn--m" type="button">Completed</button>
+                    <button class="todo__features-btn btn todo__features-btn--m todo__feature-btn-all" 
+                            type="button"
+                            title="show all todos">All
+                    </button>
+
+                    <button class="todo__features-btn btn todo__features-btn--m todo__features-btn-active " 
+                            type="button"
+                            title="show active todos">
+                    Active</button>
+
+                    <button class="todo__features-btn btn todo__features-btn--m  todo__features-btn-complete" 
+                            type="button"
+                            title="show completed todos">Completed
+                    </button>
                   </div>
                 </div>
 
 
               </div>
             </li>
-          </ul>
-        </div>
+          </ul><!-- End of features -->
 
+          <h2 class="todo__footer-heading"> Drag and to reorder list</h2>
+        </div>
       </section><!-- End of the list -->
+
+
+
 
       <div class="modal todo__modal container" role="dialog" tabindex="0">
         <div class="modal__dialog ">
           <div class="modal-wrapper">
             <div class="modal__header">
-              <h2 class="modal__title">Custom Theme</h2>
-              <button class="btn btn-close btn--xs modal__btn" aria-label="close"></button>
+
+              <h2 class="modal__title">Settings</h2>
+              <button class="btn btn-close btn--xs btn--cross modal__btn modal__btn--close" 
+                      aria-label="close">
+              </button>
             </div>
 
             <div class="modal__body">
@@ -194,20 +146,11 @@
                 <div class="modal__field-wrapper">
                   <h3 class="modal__input-heading">Background color:</h3>
                   <div class="modal__input-wrapper">
-                    <label for="colorRange">RGB:</label>
+                    <label for="bgColorRgb"></label>
                     <input  class="modal__input-rgb"
                             type="color" 
                             name="color" 
-                            id="bacgroundColorRgb" >
-                  </div>
-
-                  <div class="modal__input-wrapper">
-                    <label for="colorRange">HSl:</label>
-                    <input class="modal__input-hsl" 
-                           type="text" 
-                           name="color" 
-                           id="bacgroundColorHsl" 
-                           placeholder="HSL color">
+                            id="bgColorRgb" >
                   </div>
                 </div><!-- End of background color -->
                 
@@ -215,20 +158,11 @@
                 <div class="modal__field-wrapper">
                   <h3 class="modal__input-heading">Text color:</h3>
                   <div class="modal__input-wrapper">
-                    <label for="colorRange">RGB:</label>
+                    <label for="textColorRgb"></label>
                     <input  class="modal__input-rgb" 
                             type="color" 
                             name="color" 
                             id="textColorRgb" >
-                  </div>
-
-                  <div class="modal__input-wrapper">
-                    <label for="colorRange">HSl:</label>
-                    <input class="modal__input-hsl" 
-                           type="text" 
-                           name="color" 
-                           id="ctextColorHsl" 
-                           placeholder="HSl color">
                   </div>
                 </div><!-- End of text color-->
                 
@@ -236,20 +170,11 @@
                 <div class="modal__field-wrapper">
                   <h3 class="modal__input-heading">List Background Color:</h3>
                   <div class="modal__input-wrapper">
-                    <label for="colorRange">RGB:</label>
+                    <label for="listBgColorRgb"></label>
                     <input  class="modal__input-rgb" 
                             type="color" 
                             name="color" 
-                            id="ListBacgroundColorRgb" >
-                  </div>
-
-                  <div class="modal__input-wrapper">
-                    <label for="colorRange">HSl:</label>
-                    <input class="modal__input-hsl" 
-                           type="text" 
-                           name="color" 
-                           id="colorRange" 
-                           placeholder="HSL color">
+                            id="listBgColorRgb" >
                   </div>
                 </div><!-- End of List background-->
 
@@ -257,8 +182,10 @@
             </div>
 
             <div class="modal__footer">
-              <button class="btn btn--s modal__btn  " type="button" aria-label="Close"> Close</button>
-              <button class="btn btn--l modal__btn " type="button" aria-label="Save changes">Save Changes</button>
+              <button class="btn btn--l modal__btn modal__btn--position modal__btn--submit" 
+                      type="button" 
+                      aria-label="Apply changes">Apply
+              </button>
             </div>
 
           </div>
@@ -266,60 +193,5 @@
       </div><!-- End of modal -->
 
   </main>
-
-  <script>
-    const nav = document.querySelector(".todo__theme-switch");
-    const list = document.querySelector(".todo__nav");
-    const app = document.querySelector(".todo")
-    const moon = document.querySelector(".todo__nav-icon--moon");
-    const sun = document.querySelector(".todo__nav-icon--sun");
-    const custom = document.querySelector(".todo__nav-icon--custom");
-    const modal = document.querySelector(".modal");
-    const body = document.getElementsByTagName("body")[0];
-    console.log(body)
-
-    nav.addEventListener("click", () => {
-      nav.classList.toggle("todo__theme-switch--active")
-      list.classList.toggle("todo__nav--active");
-    })
-
-    moon.addEventListener("click", ()=> {
-
-      body.classList.add("dark-theme");
-      body.classList.remove("light-theme");
-
-    }) 
-
-    sun.addEventListener("click", ()=> {
-
-      body.classList.remove("dark-theme");
-      body.classList.add("light-theme");
-
-    })
-
-    custom.addEventListener("click",() => {
-      modal.classList.toggle("modal--active");
-    }) 
-
-
-  </script>
-  <!-- 
-  Todo
-
- Add dynamic number items left
-
-  All
-  Active 
-  Completed
-
-  Clear Completed
-
-  Drag and drop to reorder list
-
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
-  -->
 </body>
 </html>
